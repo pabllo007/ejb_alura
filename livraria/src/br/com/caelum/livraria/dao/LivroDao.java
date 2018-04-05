@@ -23,12 +23,14 @@ public class LivroDao {
 		return manager.createQuery("Select l from Livro l ", Livro.class).getResultList();
 	}
 	
-	public List<Livro> livrosPeloNome(String nome){
-		
-		TypedQuery<Livro> query = manager.createQuery("select l form livro where l.titulo like :pTitulo", Livro.class)
-				.setParameter("Titulo", "%"+ nome + "%");
-		
-		return query.getResultList();
-	}
+	public List<Livro> livrosPeloNome(String nome) {
+
+        TypedQuery<Livro> query = this.manager.createQuery(
+                "select l from Livro l " + 
+                "where l.titulo like :pTitulo", Livro.class);
+        query.setParameter("pTitulo", "%" + nome + "%");
+
+        return query.getResultList();
+    }
 	
 }
