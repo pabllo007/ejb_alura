@@ -55,5 +55,6 @@ public class AutorDao {
 		Autor autor = this.manager.find(Autor.class, autorId);
 		return autor;
 	}
+
 	
 }
